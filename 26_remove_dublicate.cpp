@@ -46,19 +46,26 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 using namespace std;
 class Solution {
 public:
-    int removeDuplicates(vector<int>& nums) {
-        int i=1;
-        int j=2;
-        int n=nums.size();
-        while(j<n){
-            if(nums[i]!=nums[j]){
-                swap(nums[i],nums[j]);
-                i++;
+    int removeDuplicates(vector<int>& arr) {
+        int n=arr.size();
+        int i,j;
+        for (int k=0;k<n;k++){
+            if (arr[k]!=arr[k+1]){
+                 i=k+2;
+                 j=k+2;
+                 break;
             }
-            j++;
 
         }
-        return i-1;
+        while (j<n){
+        if (arr[i]!=arr[j]){
+            arr[i]=arr[j];
+            i++;
+            arr[i]=arr[j];
+            j++;
+        }
+        j++; 
+    }
     }
 };
 
